@@ -2598,6 +2598,7 @@ class SHTMLEditorKitActions {
             super(SHTMLPanelMultipleDocImpl.closeAction);
             this.panel = panel;
             getProperties();
+            putValue(AbstractAction.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_W, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         }
 
         /** close the currently active document, if there is one */

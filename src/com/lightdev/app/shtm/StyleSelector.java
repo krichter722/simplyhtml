@@ -40,10 +40,12 @@ import javax.swing.text.html.HTML;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class StyleSelector extends JComboBox implements AttributeComponent, ChangeListener {
-    private final SHTMLPanelImpl shtmlPanel;
+
+	private static final long serialVersionUID = 1L;
+	private final SHTMLPanelImpl shtmlPanel;
     /** the CSS attribute key this AttributeComponent object represents */
     private final HTML.Attribute key;
     /** indicates whether or not to ignore change events */

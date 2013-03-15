@@ -34,10 +34,12 @@ import javax.swing.KeyStroke;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class SHTMLMenuBar extends JMenuBar {
-    /* (non-Javadoc)
+	private static final long serialVersionUID = 1L;
+
+	/* (non-Javadoc)
      * @see javax.swing.JMenuBar#processKeyBinding(javax.swing.KeyStroke, java.awt.event.KeyEvent, int, boolean)
      */
     public boolean handleKeyBinding(final KeyStroke ks, final KeyEvent e, final int condition, final boolean pressed) {

@@ -44,10 +44,11 @@ import javax.swing.text.html.CSS;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class EffectPanel extends JPanel implements AttributeComponent {
-    /** a radio button for the underline attribute */
+	private static final long serialVersionUID = 1L;
+	/** a radio button for the underline attribute */
     JRadioButton uLine;
     /** a radio button for the strike through attribute */
     JRadioButton strike;

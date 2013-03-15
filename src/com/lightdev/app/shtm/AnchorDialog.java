@@ -67,7 +67,8 @@ import javax.swing.text.html.HTML;
  */
 class AnchorDialog extends DialogShell implements ActionListener, CaretListener, ListSelectionListener,
         DocumentListener {
-    /** dialog components */
+	private static final long serialVersionUID = 1L;
+	/** dialog components */
     private JList anchorList;
     private JButton addAnchor;
     private JButton delAnchor;

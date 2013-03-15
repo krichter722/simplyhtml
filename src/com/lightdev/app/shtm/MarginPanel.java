@@ -36,10 +36,11 @@ import javax.swing.text.html.CSS;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class MarginPanel extends AttributePanel {
-    private final BoundariesPanel margin;
+	private static final long serialVersionUID = 1L;
+	private final BoundariesPanel margin;
     private final BoundariesPanel padding;
 
     public MarginPanel() {

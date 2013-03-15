@@ -36,10 +36,11 @@ import javax.swing.text.AttributeSet;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class ListDialog extends DialogShell {
-    private final ListPanel listPanel;
+	private static final long serialVersionUID = 1L;
+	private final ListPanel listPanel;
 
     public ListDialog(final Frame parent, final String title) {
         super(parent, title);

@@ -36,10 +36,12 @@ import javax.swing.text.html.HTML;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class TagSelector extends JComboBox {
-    /** table with available tags to select */
+
+	private static final long serialVersionUID = 1L;
+	/** table with available tags to select */
     private final Vector tags = new Vector();
     /** table with tag names corresponding to tags */
     private final Vector tagNames = new Vector();

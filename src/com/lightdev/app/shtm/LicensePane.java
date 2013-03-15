@@ -41,10 +41,12 @@ import javax.swing.JTextArea;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class LicensePane extends JPanel {
-    /* line separator character (sequence) */
+
+	private static final long serialVersionUID = 1L;
+	/* line separator character (sequence) */
     private final String lineSeparator = System.getProperty("line.separator");
 
     /**

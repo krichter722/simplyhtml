@@ -60,7 +60,8 @@ import java.util.prefs.*;
  *
  */
 public class SHTMLPanelImpl extends SHTMLPanel implements CaretListener {
-    //private int renderMode = SHTMLEditorKit.RENDER_MODE_JAVA;
+	private static final long serialVersionUID = 1L;
+	//private int renderMode = SHTMLEditorKit.RENDER_MODE_JAVA;
     /* some public constants */
     public static final String APP_TEMP_DIR = "temp";
     public static final String IMAGE_DIR = "images";
@@ -735,7 +736,7 @@ public class SHTMLPanelImpl extends SHTMLPanel implements CaretListener {
 
     public void addAction(String text, Action action) {
 		dynRes.addAction(text, action);
-		
+
 	}
 
 	/**
@@ -762,7 +763,7 @@ public class SHTMLPanelImpl extends SHTMLPanel implements CaretListener {
         }
         final JPanel toolBarPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0)) {
             /**
-             * 
+             *
              */
             private static final long serialVersionUID = 1L;
 
@@ -795,7 +796,7 @@ public class SHTMLPanelImpl extends SHTMLPanel implements CaretListener {
         };
         final Container contentPane = new JPanel() {
             /**
-            * 
+            *
             */
             private static final long serialVersionUID = 1L;
 
@@ -1082,7 +1083,7 @@ public class SHTMLPanelImpl extends SHTMLPanel implements CaretListener {
         if (toolTip != null) {
             action.putValue(Action.SHORT_DESCRIPTION, toolTip);
         }
-        
+
     }
 
     /* ---------- undo/redo implementation ----------------------- */
@@ -1170,7 +1171,9 @@ public class SHTMLPanelImpl extends SHTMLPanel implements CaretListener {
     * from those available in the system.
     */
     class FontFamilyPicker extends JComboBox implements AttributeComponent {
-        /** switch for the action listener */
+
+		private static final long serialVersionUID = 1L;
+		/** switch for the action listener */
         private boolean ignoreActions = false;
 
         FontFamilyPicker() {
@@ -1225,7 +1228,8 @@ public class SHTMLPanelImpl extends SHTMLPanel implements CaretListener {
     static final String[] FONT_SIZES = new String[] { "8", "10", "12", "14", "18", "24" };
 
     class FontSizePicker extends JComboBox implements AttributeComponent {
-        private boolean ignoreActions = false;
+		private static final long serialVersionUID = 1L;
+		private boolean ignoreActions = false;
         final private Object key;
 
         FontSizePicker() {

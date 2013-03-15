@@ -54,10 +54,11 @@ import javax.swing.text.html.HTML;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class ColorPanel extends JPanel implements ActionListener, AttributeComponent {
-    /** the component showing the chosen color */
+	private static final long serialVersionUID = 1L;
+	/** the component showing the chosen color */
     JTextField colorDisplay = new JTextField();
     /** default color */
     private final Color defaultColor;
@@ -301,7 +302,9 @@ class ColorPanel extends JPanel implements ActionListener, AttributeComponent {
 
     /** the event object definition for ColorPanels */
     class ColorPanelEvent extends EventObject {
-        public ColorPanelEvent(final Object source) {
+		private static final long serialVersionUID = 1L;
+
+		public ColorPanelEvent(final Object source) {
             super(source);
         }
     }

@@ -33,7 +33,9 @@ import java.util.EventObject;
  * @version 1.5, April 27, 2003
  */
 public class FindReplaceEvent extends EventObject {
-    public FindReplaceEvent(final FindReplaceDialog source) {
+	private static final long serialVersionUID = 1L;
+
+	public FindReplaceEvent(final FindReplaceDialog source) {
         super(source);
     }
 }

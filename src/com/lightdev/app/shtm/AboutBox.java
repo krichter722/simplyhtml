@@ -49,10 +49,12 @@ import javax.swing.border.EtchedBorder;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class AboutBox extends JDialog implements ActionListener {
-    /** button to close the dialog */
+
+	private static final long serialVersionUID = 1L;
+	/** button to close the dialog */
     JButton closeButton = new JButton("Close");
     /** name of the license file */
     private final String LICENSE = "resources/gpl.txt";

@@ -50,10 +50,12 @@ import javax.swing.border.EmptyBorder;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class SplitPanel extends JPanel {
-    /* --------------- class fields start --------------- */
+
+	private static final long serialVersionUID = 1L;
+	/* --------------- class fields start --------------- */
     /** constant for the major axis being the horizontal one */
     public static final int MAJOR_AXIS_HORIZONTAL = 1; // NOT SUPPORTED
     /** constant for the major axis being the vertical one */
@@ -100,22 +102,12 @@ class SplitPanel extends JPanel {
         outerPanels[SOUTH].setOrientation(JSplitPane.VERTICAL_SPLIT);
         outerPanels[WEST].setOrientation(JSplitPane.HORIZONTAL_SPLIT);
         outerPanels[EAST].setOrientation(JSplitPane.HORIZONTAL_SPLIT);
-        if (majorAxis == SplitPanel.MAJOR_AXIS_VERTICAL) {
-            // [ ALWAYS THE CASE ]
-            //System.out.println("SplitPanel.buildLayout majorAxis = vertical");
-            outerPanels[SOUTH].setTopComponent(outerPanels[NORTH]);
-            outerPanels[WEST].setRightComponent(outerPanels[SOUTH]);
-            outerPanels[EAST].setLeftComponent(outerPanels[WEST]);
-            this.add(outerPanels[EAST], BorderLayout.CENTER);
-        }
-        else {
-            // [ NOT SUPPORTED ]
-            //System.out.println("SplitPanel.buildLayout majorAxis = horizontal");
-            outerPanels[SOUTH].setTopComponent(outerPanels[NORTH]);
-            outerPanels[WEST].setRightComponent(outerPanels[SOUTH]);
-            outerPanels[EAST].setLeftComponent(outerPanels[WEST]);
-            this.add(outerPanels[SOUTH], BorderLayout.CENTER);
-        }
+        // [ ALWAYS THE CASE ]
+		//System.out.println("SplitPanel.buildLayout majorAxis = vertical");
+		outerPanels[SOUTH].setTopComponent(outerPanels[NORTH]);
+		outerPanels[WEST].setRightComponent(outerPanels[SOUTH]);
+		outerPanels[EAST].setLeftComponent(outerPanels[WEST]);
+		this.add(outerPanels[EAST], BorderLayout.CENTER);
     }
 
     /**

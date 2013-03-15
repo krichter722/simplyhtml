@@ -106,7 +106,7 @@ import javax.swing.text.html.HTMLDocument;
  * @see com.lightdev.app.shtm.HTMLTextSelection
  */
 public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, DragSourceListener, DragGestureListener {
-
+	private static final long serialVersionUID = 1L;
 	private static final String TAB = "\t";
 	private static final String TAB_REPLACEMENT = "    ";
 
@@ -369,7 +369,9 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     }
 
     private class DeletePrevCharAction extends AbstractAction {
-        public void actionPerformed(final ActionEvent actionEvent) {
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(final ActionEvent actionEvent) {
             final int selectionStart = getSelectionStart();
             final int selectionEnd = getSelectionEnd();
             final SHTMLDocument doc = (SHTMLDocument) getDocument();
@@ -393,7 +395,9 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     }
 
     private class DeleteNextCharAction extends AbstractAction {
-        public void actionPerformed(final ActionEvent actionEvent) {
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(final ActionEvent actionEvent) {
             final int selectionStart = getSelectionStart();
             if (selectionStart == getSelectionEnd()) {
                 final SHTMLDocument doc = (SHTMLDocument) getDocument();
@@ -451,7 +455,10 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     }
 
     private class MoveUpAction extends AbstractAction {
-        public void actionPerformed(final ActionEvent e) {
+
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(final ActionEvent e) {
             if (caretWithinTableCell()) {
                 if (getCaretPosition() == 0) {
                     // The table is at the top of the document.
@@ -493,7 +500,10 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     }
 
     private class MoveDownAction extends AbstractAction {
-        public void actionPerformed(final ActionEvent e) {
+
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(final ActionEvent e) {
             if (caretWithinTableCell()) {
                 if (tryDefaultKeyStrokeActionWithinCell(KeyEvent.VK_DOWN, 0, e)) {
                     return;
@@ -526,7 +536,10 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     }
 
     private class HomeAction extends AbstractAction {
-        public void actionPerformed(final ActionEvent e) {
+
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(final ActionEvent e) {
             if (caretWithinTableCell()) {
                 if (tryDefaultKeyStrokeActionWithinCell(KeyEvent.VK_HOME, 0, e)) {
                     return;
@@ -540,7 +553,9 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     }
 
     private class EndAction extends AbstractAction {
-        public void actionPerformed(final ActionEvent e) {
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(final ActionEvent e) {
             if (caretWithinTableCell()) {
                 if (tryDefaultKeyStrokeActionWithinCell(KeyEvent.VK_END, 0, e)) {
                     return;
@@ -554,7 +569,10 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     }
 
     private class ShiftHomeAction extends AbstractAction {
-        public void actionPerformed(final ActionEvent e) {
+
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(final ActionEvent e) {
             if (caretWithinTableCell()) {
                 final int originalCaretPosition = getCaretPosition();
                 if (tryDefaultKeyStrokeActionWithinCell(KeyEvent.VK_HOME, KeyEvent.SHIFT_MASK, e)) {
@@ -575,7 +593,10 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     }
 
     private class ShiftEndAction extends AbstractAction {
-        public void actionPerformed(final ActionEvent e) {
+
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(final ActionEvent e) {
             if (caretWithinTableCell()) {
                 final int originalCaretPosition = getCaretPosition();
                 if (tryDefaultKeyStrokeActionWithinCell(KeyEvent.VK_END, KeyEvent.SHIFT_MASK, e)) {
@@ -633,7 +654,10 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
      * may be a paragraph proper or a list item.
      */
     private class NewParagraphAction extends AbstractAction {
-        /** construct a <code>NewParagraphAction</code> */
+
+		private static final long serialVersionUID = 1L;
+
+		/** construct a <code>NewParagraphAction</code> */
         public NewParagraphAction() {
         }
 
@@ -1654,7 +1678,10 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
      * to the next table cell.
      */
     private class TabAction extends AbstractAction {
-        /** action to use when not inside a table */
+
+		private static final long serialVersionUID = 1L;
+
+		/** action to use when not inside a table */
         /* removed for changes in J2SE 1.4.1
         private Action alternateAction;
          */
@@ -1711,7 +1738,10 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
      * to the previous table cell.
      */
     private class ShiftTabAction extends AbstractAction {
-        /** action to use when not inside a table */
+
+		private static final long serialVersionUID = 1L;
+
+		/** action to use when not inside a table */
         /* removed for changes in J2SE 1.4.1
         private Action alternateAction;
         */
@@ -1759,7 +1789,9 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
      * <code>Action</code> to create a new list item.
      */
     private class InsertLineBreakAction extends AbstractAction {
-        /** construct a <code>NewListItemAction</code> */
+		private static final long serialVersionUID = 1L;
+
+		/** construct a <code>NewListItemAction</code> */
         public InsertLineBreakAction() {
         }
 
@@ -2284,6 +2316,7 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     private class ListManager {
         //private Element parentElement;
         class SwitchListException extends Exception {
+			private static final long serialVersionUID = 1L;
         }
 
         private ListManager() {
@@ -3260,7 +3293,10 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
             return null;
         }
         class LocalTransferHandler extends TransferHandler {
-            /* (non-Javadoc)
+
+			private static final long serialVersionUID = 1L;
+
+			/* (non-Javadoc)
              * @see javax.swing.TransferHandler#canImport(javax.swing.JComponent, java.awt.datatransfer.DataFlavor[])
              */
             public boolean canImport(final JComponent comp, final DataFlavor[] transferFlavors) {
@@ -3640,7 +3676,9 @@ public class SHTMLEditorPane extends JEditorPane implements DropTargetListener, 
     void updateInputAttributes() {
         ((SHTMLEditorKit) getEditorKit()).updateInputAttributes(this);
         fireCaretUpdate(new CaretEvent(this) {
-            public int getDot() {
+			private static final long serialVersionUID = 1L;
+
+			public int getDot() {
                 return getSelectionStart();
             }
 

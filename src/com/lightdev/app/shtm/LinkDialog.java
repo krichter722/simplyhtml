@@ -66,7 +66,8 @@ import javax.swing.text.html.HTML;
  *
  */
 class LinkDialog extends DialogShell implements ActionListener {
-    /** table for link types: name -> type */
+	private static final long serialVersionUID = 1L;
+	/** table for link types: name -> type */
     private Hashtable linkTypes;
     /** table for link types: type -> name */
     private Hashtable linkTypeNames;

@@ -30,10 +30,12 @@ package com.lightdev.app.shtm;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class DocNameMissingException extends Exception {
-    /**
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Constructs a <code>DocNameMissingException</code> with <code>null</code>
      * as its error detail message.
      */

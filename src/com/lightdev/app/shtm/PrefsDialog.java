@@ -53,10 +53,11 @@ import javax.swing.UIManager;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class PrefsDialog extends DialogShell implements ActionListener {
-    /** the look and feels avaliable in the system */
+	private static final long serialVersionUID = 1L;
+	/** the look and feels avaliable in the system */
     private UIManager.LookAndFeelInfo[] lfinfo;
     /** reference for user preferences for this class */
     protected Preferences prefs = Preferences.userNodeForPackage(getClass());
@@ -72,7 +73,7 @@ class PrefsDialog extends DialogShell implements ActionListener {
     private static final String helpTopicId = "item167";
     private final List<SHTMLPrefsChangeListener> prefChangeListeners = new LinkedList<SHTMLPrefsChangeListener>();
 
-    public PrefsDialog(final Frame parent, final String title) {   	
+    public PrefsDialog(final Frame parent, final String title) {
         super(parent, title, helpTopicId);
         // have a grid bag layout ready to use
         final GridBagLayout g = new GridBagLayout();
@@ -82,17 +83,17 @@ class PrefsDialog extends DialogShell implements ActionListener {
         final JPanel appPrefsPanel = new JPanel(g);
         Util.addGridBagComponent(appPrefsPanel, new JLabel(Util.getResourceString("prfLafLabel")), g, c, 0, 0,
             GridBagConstraints.EAST);
-        
+
         lafCombo = new JComboBox();
         initLfComboBox();
         Util.addGridBagComponent(appPrefsPanel, lafCombo, g, c, 1, 0, GridBagConstraints.EAST);
-        
+
         pasteModeCombo = new JComboBox();
         initPasteModeComboBox();
         Util.addGridBagComponent(appPrefsPanel, new JLabel(Util.getResourceString("prefsPasteModeLabel")), g, c, 0, 1,
                 GridBagConstraints.EAST);
         Util.addGridBagComponent(appPrefsPanel, pasteModeCombo, g, c, 1, 1, GridBagConstraints.EAST);
-        
+
         // build a panel for preferences related to documents
         /*
         JPanel docPrefsPanel = new JPanel(g);
@@ -109,7 +110,7 @@ class PrefsDialog extends DialogShell implements ActionListener {
         final boolean useStyle = prefs.getBoolean(PrefsDialog.PREFS_USE_STD_STYLE_SHEET, false);
         useStdStyleSheet.setSelected(useStyle);
         Util.addGridBagComponent(layoutPanel, useStdStyleSheet, g, c, 0, 2, GridBagConstraints.WEST);
-                
+
         // add to content pane of DialogShell
         final Container contentPane = super.getContentPane();
         contentPane.add(layoutPanel, BorderLayout.CENTER);
@@ -118,12 +119,12 @@ class PrefsDialog extends DialogShell implements ActionListener {
         // cause optimal placement of all elements
         pack();
     }
-    
+
     public void addPrefChangeListener(final SHTMLPrefsChangeListener listener)
     {
     	prefChangeListeners.add(listener);
     }
-    
+
     public void removePrefChangeListener(final SHTMLPrefsChangeListener listener)
     {
     	prefChangeListeners.remove(listener);
@@ -139,7 +140,7 @@ class PrefsDialog extends DialogShell implements ActionListener {
         lafCombo.setModel(new DefaultComboBoxModel(lfNames));
         lafCombo.setSelectedItem(lafName);
     }
-    
+
     private void initPasteModeComboBox()
     {
     	pasteModeCombo.setModel(new DefaultComboBoxModel(SHTMLEditorPane.PasteMode.values()));
@@ -149,7 +150,7 @@ class PrefsDialog extends DialogShell implements ActionListener {
 
 			public Component getListCellRendererComponent(JList list,
 					Object value, int index, boolean isSelected,
-					boolean cellHasFocus) 
+					boolean cellHasFocus)
 			{
 				switch ((SHTMLEditorPane.PasteMode)value)
 				{
@@ -161,7 +162,7 @@ class PrefsDialog extends DialogShell implements ActionListener {
 					throw new AssertionError();
 				}
 			}
-    		
+
     	});
     }
 
@@ -194,7 +195,7 @@ class PrefsDialog extends DialogShell implements ActionListener {
             {
             	listener.shtmlPrefChanged(PREFS_USE_STD_STYLE_SHEET, new Boolean(useStdStyleSheet.isSelected()).toString(),
             			new Boolean(oldStyleSheetPref).toString());
-            
+
             	listener.shtmlPrefChanged(PREFS_DEFAULT_PASTE_MODE, prefs.get(PREFS_DEFAULT_PASTE_MODE, null),
             			oldDefaultPasteMode);
             }

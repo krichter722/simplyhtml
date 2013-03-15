@@ -20,7 +20,9 @@
 package com.lightdev.app.shtm;
 
 class SHTMLPanelSingleDocImpl extends SHTMLPanelImpl {
-    public SHTMLPanelSingleDocImpl() {
+	private static final long serialVersionUID = 1L;
+
+	public SHTMLPanelSingleDocImpl() {
         super();
     }
 

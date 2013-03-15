@@ -40,10 +40,12 @@ import javax.swing.SwingUtilities;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class ManagePluginsAction extends AbstractAction implements SHTMLAction {
-    public static final String managePluginsAction = "managePlugins";
+
+	private static final long serialVersionUID = 1L;
+	public static final String managePluginsAction = "managePlugins";
 
     public ManagePluginsAction() {
         super(managePluginsAction);

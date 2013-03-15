@@ -51,10 +51,11 @@ import javax.swing.event.ListSelectionListener;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class PluginManagerDialog extends DialogShell implements ListSelectionListener, ActionListener {
-    /** combo box for selecting the dock location */
+	private static final long serialVersionUID = 1L;
+	/** combo box for selecting the dock location */
     private final JComboBox dockLocation;
     /** indicates if we can ignore changes (when happenig programmatically */
     private boolean ignoreChanges = false;

@@ -43,10 +43,11 @@ import javax.swing.text.html.HTML;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class AttributeMapper extends SimpleAttributeSet {
-    public static final int toCSS = 0;
+	private static final long serialVersionUID = 1L;
+	public static final int toCSS = 0;
     public static final int toHTML = 1;
     public static final int toJava = 2;
 

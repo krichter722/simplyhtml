@@ -48,10 +48,12 @@ import javax.swing.JPanel;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class DialogShell extends JDialog implements ActionListener {
-    /** panel containing dialog buttons */
+
+	private static final long serialVersionUID = 1L;
+	/** panel containing dialog buttons */
     protected JPanel buttonPanel;
     /** button to confirm the operation */
     protected AbstractButton okButton;

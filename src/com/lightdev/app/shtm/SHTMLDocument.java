@@ -60,10 +60,11 @@ import javax.swing.undo.UndoableEdit;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 public class SHTMLDocument extends HTMLDocument {
-    public static final String SUFFIX = "&nbsp;";
+	private static final long serialVersionUID = 1L;
+	public static final String SUFFIX = "&nbsp;";
     private static Set paragraphElements;
     private CompoundEdit compoundEdit;
     private int compoundEditDepth;
@@ -444,7 +445,7 @@ public class SHTMLDocument extends HTMLDocument {
 
         /**
          * Constructor
-         * 
+         *
          */
         public SHTMLReader(final int offset, final boolean emptyDocument) {
             super(offset, 0, 0, null);

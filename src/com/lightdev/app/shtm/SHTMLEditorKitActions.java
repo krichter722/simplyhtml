@@ -72,6 +72,10 @@ class SHTMLEditorKitActions {
      */
     static class SetStyleAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -123,6 +127,10 @@ class SHTMLEditorKitActions {
      */
     static class AppendTableColAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -163,6 +171,10 @@ class SHTMLEditorKitActions {
      */
     static class SetTagAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -223,6 +235,10 @@ class SHTMLEditorKitActions {
      */
     static class AppendTableRowAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -261,6 +277,10 @@ class SHTMLEditorKitActions {
      */
     static class BoldAction extends StyledEditorKit.BoldAction implements SHTMLAction, AttributeComponent {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -379,6 +399,10 @@ class SHTMLEditorKitActions {
      */
     static class ApplyCSSAttributeAction extends AbstractAction implements SHTMLAction, AttributeComponent {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -504,6 +528,10 @@ class SHTMLEditorKitActions {
      */
     static class DeleteTableColAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -544,6 +572,10 @@ class SHTMLEditorKitActions {
      */
     static class ShowElementTreeAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -589,6 +621,10 @@ class SHTMLEditorKitActions {
      */
     static class DeleteTableRowAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -626,6 +662,10 @@ class SHTMLEditorKitActions {
      */
     static class ToggleListAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -669,6 +709,10 @@ class SHTMLEditorKitActions {
      */
     static class DocumentTitleAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -719,6 +763,10 @@ class SHTMLEditorKitActions {
      */
     static class UnderlineAction extends StyledEditorKit.UnderlineAction implements SHTMLAction, AttributeComponent {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -831,6 +879,10 @@ class SHTMLEditorKitActions {
 
     static class FontColorAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -871,6 +923,10 @@ class SHTMLEditorKitActions {
        */
     static class EditAnchorsAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -914,6 +970,10 @@ class SHTMLEditorKitActions {
      */
     static class EditLinkAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -922,6 +982,7 @@ class SHTMLEditorKitActions {
             super(SHTMLPanelImpl.editLinkAction);
             this.panel = panel;
             getProperties();
+            putValue(AbstractAction.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_K, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         }
 
         public void actionPerformed(final ActionEvent ae) {
@@ -971,6 +1032,10 @@ class SHTMLEditorKitActions {
      */
     static class OpenLinkAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -979,6 +1044,7 @@ class SHTMLEditorKitActions {
             super(SHTMLPanelImpl.openLinkAction);
             this.panel = panel;
             getProperties();
+            putValue(AbstractAction.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_B, KeyEvent.ALT_DOWN_MASK));
         }
 
         public void actionPerformed(final ActionEvent ae) {
@@ -1018,6 +1084,10 @@ class SHTMLEditorKitActions {
      */
     static class UndoAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1062,6 +1132,10 @@ class SHTMLEditorKitActions {
      */
     static class EditNamedStyleAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1103,6 +1177,10 @@ class SHTMLEditorKitActions {
 
     static class ClearFormatAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1155,6 +1233,10 @@ class SHTMLEditorKitActions {
      */
     static class MultipleDocFindReplaceAction extends AbstractAction implements SHTMLAction, FindReplaceListener {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelMultipleDocImpl panel;
@@ -1241,6 +1323,10 @@ class SHTMLEditorKitActions {
      */
     static class SingleDocFindReplaceAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1294,6 +1380,10 @@ class SHTMLEditorKitActions {
      */
     static class FontAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1344,6 +1434,10 @@ class SHTMLEditorKitActions {
      */
     static class FontFamilyAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1380,6 +1474,10 @@ class SHTMLEditorKitActions {
      */
     static class FontSizeAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1418,6 +1516,10 @@ class SHTMLEditorKitActions {
 
     static class FormatImageAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1483,6 +1585,10 @@ class SHTMLEditorKitActions {
      */
     static class FormatListAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1548,6 +1654,10 @@ class SHTMLEditorKitActions {
      */
     static class FormatParaAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1597,6 +1707,10 @@ class SHTMLEditorKitActions {
      */
     static class FormatTableAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1665,6 +1779,10 @@ class SHTMLEditorKitActions {
      */
     static class GarbageCollectionAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1690,6 +1808,10 @@ class SHTMLEditorKitActions {
 
     static class InsertImageAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1745,6 +1867,10 @@ class SHTMLEditorKitActions {
      */
     static class InsertTableAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1794,6 +1920,10 @@ class SHTMLEditorKitActions {
      */
     static class InsertTableColAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1831,6 +1961,10 @@ class SHTMLEditorKitActions {
      */
     static class InsertTableRowAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1870,6 +2004,10 @@ class SHTMLEditorKitActions {
      */
     static class MoveTableRowUpAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1907,6 +2045,10 @@ class SHTMLEditorKitActions {
      */
     static class MoveTableRowDownAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1944,6 +2086,10 @@ class SHTMLEditorKitActions {
      */
     static class MoveTableColumnLeftAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -1981,6 +2127,10 @@ class SHTMLEditorKitActions {
      */
     static class MoveTableColumnRightAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2018,6 +2168,10 @@ class SHTMLEditorKitActions {
      */
     static class ToggleTableHeaderCellAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2052,6 +2206,10 @@ class SHTMLEditorKitActions {
 
     static class ItalicAction extends StyledEditorKit.ItalicAction implements SHTMLAction, AttributeComponent {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2163,6 +2321,10 @@ class SHTMLEditorKitActions {
      */
     static class NextTableCellAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2205,6 +2367,10 @@ class SHTMLEditorKitActions {
      */
     static class PrevTableCellAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2246,7 +2412,11 @@ class SHTMLEditorKitActions {
      * action to move to the previous cell in a table
      */
     static class PrintAction extends AbstractAction implements SHTMLAction {
-        static private Method printMethod;
+        /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		static private Method printMethod;
         static {
             Method printMethod = null;
             try {
@@ -2297,6 +2467,10 @@ class SHTMLEditorKitActions {
      */
     static class RedoAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2339,6 +2513,10 @@ class SHTMLEditorKitActions {
     /** just adds a normal name to the superclasse's action */
     static class SHTMLEditCopyAction extends DefaultEditorKit.CopyAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2373,6 +2551,10 @@ class SHTMLEditorKitActions {
     /** just adds a normal name to the superclasse's action */
     static class SHTMLEditCutAction extends DefaultEditorKit.CutAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2407,6 +2589,10 @@ class SHTMLEditorKitActions {
     /** just adds a normal name to the superclasse's action */
     static class SHTMLEditPasteAction extends DefaultEditorKit.PasteAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2445,6 +2631,10 @@ class SHTMLEditorKitActions {
      */
     static class SHTMLEditPasteOtherAction extends DefaultEditorKit.PasteAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2454,7 +2644,7 @@ class SHTMLEditorKitActions {
             this.panel = panel;
 
             updateActionName(PasteMode.getValueFromPrefs().invert());
-            //putValue(AbstractAction.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_V, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+            putValue(AbstractAction.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_V, KeyEvent.ALT_DOWN_MASK));
         }
 
         public void updateActionName(final PasteMode pm)
@@ -2501,6 +2691,10 @@ class SHTMLEditorKitActions {
 
     static class SHTMLEditPrefsAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2539,6 +2733,10 @@ class SHTMLEditorKitActions {
 
     static class SHTMLEditSelectAllAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -2587,6 +2785,10 @@ class SHTMLEditorKitActions {
      */
     static class SHTMLFileCloseAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelMultipleDocImpl panel;
@@ -2753,6 +2955,10 @@ class SHTMLEditorKitActions {
      */
     static class SHTMLFileCloseAllAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelMultipleDocImpl panel;
@@ -2803,6 +3009,10 @@ class SHTMLEditorKitActions {
      */
     static class SHTMLFileExitAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelMultipleDocImpl panel;
@@ -2840,6 +3050,10 @@ class SHTMLEditorKitActions {
     /** create a new empty document and show it */
     static class SHTMLFileNewAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelMultipleDocImpl panel;
@@ -2872,6 +3086,10 @@ class SHTMLEditorKitActions {
     /** open an existing document from file and show it */
     static class SHTMLFileOpenAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelMultipleDocImpl panel;
@@ -2999,6 +3217,10 @@ class SHTMLEditorKitActions {
     /** save a document */
     static class SHTMLFileSaveAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -3059,6 +3281,10 @@ class SHTMLEditorKitActions {
 
     static class SHTMLFileSaveAllAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelMultipleDocImpl panel;
@@ -3103,6 +3329,10 @@ class SHTMLEditorKitActions {
      */
     static class SHTMLFileSaveAsAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelMultipleDocImpl panel;
@@ -3238,6 +3468,10 @@ class SHTMLEditorKitActions {
      */
     static class SHTMLTestAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -3263,6 +3497,10 @@ class SHTMLEditorKitActions {
     /** show information about SimplyHTML in a dialog */
     static class SHTMLHelpAppInfoAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;
@@ -3298,6 +3536,10 @@ class SHTMLEditorKitActions {
      */
     static class SetDefaultStyleRefAction extends AbstractAction implements SHTMLAction {
         /**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		/**
          *
          */
         private final SHTMLPanelImpl panel;

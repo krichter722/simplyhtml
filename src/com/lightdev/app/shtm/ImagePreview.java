@@ -52,7 +52,8 @@ import javax.swing.SwingConstants;
  *
  */
 class ImagePreview extends JComponent implements Scrollable {
-    /**
+	private static final long serialVersionUID = 1L;
+	/**
      * scroll increment (for Scrollable implementation)
      */
     private int maxUnitIncrement = 1;

@@ -76,7 +76,9 @@ import com.sun.demo.ExampleFileFilter;
  *
  */
 class ImageDialog extends DialogShell implements ActionListener, ListSelectionListener, ChangeListener {
-    /** directory this ImageDialog maintains */
+
+	private static final long serialVersionUID = 1L;
+	/** directory this ImageDialog maintains */
     private File imgDir;
     /** KeyListener for watching changes in the scale text field */
     private final KeyHandler keyHandler = new KeyHandler();

@@ -66,11 +66,12 @@ import javax.swing.text.html.StyleSheet;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class ParaStyleDialog extends DialogShell implements AttributeComponent, ActionListener, ListSelectionListener,
         ChangeListener {
-    private final String standardStyleName = Util.getResourceString("standardStyleName");
+	private static final long serialVersionUID = 1L;
+	private final String standardStyleName = Util.getResourceString("standardStyleName");
     /** mode to edit named styles with this dialog */
     private static int MODE_NAMED_STYLES = 1;
     /** mode to set a paragraph style with this dialog */

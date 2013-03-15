@@ -81,7 +81,8 @@ import javax.swing.tree.TreePath;
  */
 public class ElementTreePanel extends JPanel implements CaretListener, DocumentListener, PropertyChangeListener,
         TreeSelectionListener {
-    /** Tree showing the documents element structure. */
+	private static final long serialVersionUID = 1L;
+	/** Tree showing the documents element structure. */
     protected JTree tree;
     /** Text component showing elemenst for. */
     protected JTextComponent editor;
@@ -96,7 +97,10 @@ public class ElementTreePanel extends JPanel implements CaretListener, DocumentL
         // Create the tree.
         treeModel = new ElementTreeModel(document);
         tree = new JTree(treeModel) {
-            public String convertValueToText(final Object value, final boolean selected, final boolean expanded,
+
+			private static final long serialVersionUID = 1L;
+
+			public String convertValueToText(final Object value, final boolean selected, final boolean expanded,
                                              final boolean leaf, final int row, final boolean hasFocus) {
                 // Should only happen for the root
                 if (!(value instanceof Element)) {
@@ -141,7 +145,9 @@ public class ElementTreePanel extends JPanel implements CaretListener, DocumentL
         // This is a temporary workaround, increase the needed size by 15,
         // hoping that will be enough.
         tree.setCellRenderer(new DefaultTreeCellRenderer() {
-            public Dimension getPreferredSize() {
+			private static final long serialVersionUID = 1L;
+
+			public Dimension getPreferredSize() {
                 final Dimension retValue = super.getPreferredSize();
                 if (retValue != null) {
                     retValue.width += 15;
@@ -438,7 +444,8 @@ public class ElementTreePanel extends JPanel implements CaretListener, DocumentL
      * methods have been subclassed, primarily to special case the root.
      */
     public static class ElementTreeModel extends DefaultTreeModel {
-        protected Element[] rootElements;
+		private static final long serialVersionUID = 1L;
+		protected Element[] rootElements;
 
         public ElementTreeModel(final Document document) {
             super(new DefaultMutableTreeNode("root"), false);

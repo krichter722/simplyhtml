@@ -45,10 +45,12 @@ import javax.swing.text.html.CSS;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class BorderPanel extends JPanel implements AttributeComponent {
-    private final Vector components = new Vector();
+
+	private static final long serialVersionUID = 1L;
+	private final Vector components = new Vector();
     /** the attributes for border width */
     private CombinedAttribute bWidth;
     /** the attributes for border color */
@@ -152,7 +154,8 @@ class BorderPanel extends JPanel implements AttributeComponent {
      * Panel to show and manipulate border settings
      */
     private class BorderSettings extends JPanel {
-        /** the border side */
+		private static final long serialVersionUID = 1L;
+		/** the border side */
         private final int side;
         /** selector for border width */
         private final SizeSelectorPanel bWidth;

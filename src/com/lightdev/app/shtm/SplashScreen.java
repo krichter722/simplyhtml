@@ -35,10 +35,12 @@ import javax.swing.JWindow;
  * Class that displays a splash screen
  * Is run in a separate thread so that the applet continues to load in the background
  * @author Karsten Pawlik
- * 
+ *
  */
 public class SplashScreen extends JWindow {
-    private static SplashScreen instance = null;
+
+	private static final long serialVersionUID = 1L;
+	private static SplashScreen instance = null;
     private static int counter;
 
     private SplashScreen() {

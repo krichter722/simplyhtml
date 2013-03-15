@@ -54,10 +54,11 @@ import javax.swing.text.html.HTML;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class FontPanel extends JPanel implements TitledPickList.TitledPickListListener, ColorPanel.ColorPanelListener {
-    /** a text field to show a sample of the selected font attributes */
+	private static final long serialVersionUID = 1L;
+	/** a text field to show a sample of the selected font attributes */
     JTextField sample = new JTextField();
     /** table for automatic font component value read/write */
     private final Vector fontComponents = new Vector(0);
@@ -248,7 +249,8 @@ class FontPanel extends JPanel implements TitledPickList.TitledPickListListener,
      * special to font family values
      */
     class FamilyPickList extends TitledPickList implements AttributeComponent {
-        private int setValCount = 0;
+		private static final long serialVersionUID = 1L;
+		private int setValCount = 0;
         private Object originalValue;
 
         /**
@@ -313,7 +315,8 @@ class FontPanel extends JPanel implements TitledPickList.TitledPickListListener,
      * special to font size values
      */
     class SizePickList extends TitledPickList implements AttributeComponent {
-        private int setValCount = 0;
+		private static final long serialVersionUID = 1L;
+		private int setValCount = 0;
         private String originalValue;
 
         /**
@@ -373,7 +376,9 @@ class FontPanel extends JPanel implements TitledPickList.TitledPickListListener,
      * special to font style values
      */
     class StylePickList extends TitledPickList implements AttributeComponent {
-        private int originalValue;
+
+		private static final long serialVersionUID = 1L;
+		private int originalValue;
         private int setValCount = 0;
 
         /**

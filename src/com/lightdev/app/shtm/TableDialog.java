@@ -50,10 +50,11 @@ import javax.swing.text.html.HTML;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class TableDialog extends DialogShell {
-    /** collection of all components with table related attributes */
+	private static final long serialVersionUID = 1L;
+	/** collection of all components with table related attributes */
     Vector tableComponents = new Vector();
     /** collection of all components with cell related attributes */
     Vector cellComponents = new Vector();

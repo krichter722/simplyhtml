@@ -19,8 +19,6 @@
 package com.lightdev.app.shtm;
 
 import java.awt.Cursor;
-import java.awt.Font;
-import java.awt.Toolkit;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -68,10 +66,12 @@ import javax.swing.text.html.StyleSheet;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 public class SHTMLEditorKit extends HTMLEditorKit {
- 
+
+	private static final long serialVersionUID = 1L;
+
 	SHTMLEditorKit() {
         super();
         final Cursor textCursor = Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR);

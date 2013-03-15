@@ -81,10 +81,11 @@ import com.sun.demo.ExampleFileFilter;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class DocumentPane extends JPanel implements DocumentListener, ChangeListener {
-    /** the editor displaying the document in layout view */
+	private static final long serialVersionUID = 1L;
+	/** the editor displaying the document in layout view */
     private final SHTMLEditorPane editorPane;
     /** the editor displaying the document in HTML code view */
     private final SyntaxPane sourceEditorPane;
@@ -875,7 +876,9 @@ class DocumentPane extends JPanel implements DocumentListener, ChangeListener {
 
     /** the event object definition for DocumentPaneEvents */
     class DocumentPaneEvent extends EventObject {
-        public DocumentPaneEvent(final Object source) {
+		private static final long serialVersionUID = 1L;
+
+		public DocumentPaneEvent(final Object source) {
             super(source);
         }
     }

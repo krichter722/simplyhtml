@@ -29,7 +29,8 @@ import javax.swing.event.ChangeListener;
 import javax.swing.text.html.HTML;
 
 class SHTMLPanelMultipleDocImpl extends SHTMLPanelImpl implements ChangeListener {
-    public static final String newAction = "new";
+	private static final long serialVersionUID = 1L;
+	public static final String newAction = "new";
     public static final String openAction = "open";
     public static final String closeAction = "close";
     public static final String closeAllAction = "closeAll";

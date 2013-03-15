@@ -64,10 +64,11 @@ import javax.swing.event.ListSelectionListener;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class TitledPickList extends JPanel implements ListSelectionListener, CaretListener, FocusListener, KeyListener {
-    /** the chosen list entry */
+	private static final long serialVersionUID = 1L;
+	/** the chosen list entry */
     private final JTextField choice;
     boolean ignoreTextChanges = false;
     /** the list having all possible entries */
@@ -243,7 +244,8 @@ class TitledPickList extends JPanel implements ListSelectionListener, CaretListe
 
     /** the event object definition for ColorPanels */
     class TitledPickListEvent extends EventObject {
-        public TitledPickListEvent(final Object source) {
+		private static final long serialVersionUID = 1L;
+		public TitledPickListEvent(final Object source) {
             super(source);
         }
     }

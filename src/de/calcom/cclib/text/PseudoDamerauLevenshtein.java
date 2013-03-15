@@ -23,25 +23,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
-import java.util.TreeSet;
 
 /**
  * Pseudo-Damerau-Levenshtein (aka "Optimal String Distance")
  * implementation which allows some non-adjacent transpositions(?)
  * Computes the edit distance with insertions/deletions/substitutions/transpositions.
- * 
+ *
  * Optionally the edit distance of a semi-global alignment is computed which
  * allows the search term to be shifted free-of-cost (i.e. dist("file", "a file is")==0).
- * 
+ *
  * Some properties are explained in the unit test, {@link org.freeplane.features.filter.EditDistanceStringMatchingStrategiesTest}.
- * 
+ *
  * TODO: use unicode code points instead of chars !!
- * 
+ *
  * @author Felix Natter <fnatter@gmx.net>
  *
  */
@@ -56,7 +52,7 @@ public class PseudoDamerauLevenshtein {
 	private Type type;
 	private Stack<Alignment> alignmentsInProgress;
 	private ArrayList<Alignment> alignmentsDone;
-	
+
 	public class Alignment implements Comparable<Alignment>
 	{
 		private final String searchTermString;
@@ -65,24 +61,24 @@ public class PseudoDamerauLevenshtein {
 		private final int matchStart;
 		private final int matchEnd;
 		private final int r, c;
-		
+
 		public int getMatchStart()
 		{
 			return matchStart;
 		}
-		
+
 		public int getMatchEnd()
 		{
 			return matchEnd;
 		}
-		
+
 		public boolean overlapsWith(final Alignment other)
-		{	
+		{
 			return (matchStart <= other.matchStart && other.matchStart <= matchEnd-1) || // endpoint of this lies in other
 				   (other.matchStart <= matchStart && matchStart <= other.matchEnd-1); // endpoint of other lies in this
-				   
+
 		}
-				
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -160,32 +156,32 @@ public class PseudoDamerauLevenshtein {
 		{
 			return searchText.substring(matchStart, matchEnd);
 		}
-		
+
 		public int compareTo(final Alignment other)
 		{
 			if (prob == other.prob)
 			{
-				return new Integer(getMatch().length()).compareTo(new Integer(other.getMatch().length())); 
+				return new Integer(getMatch().length()).compareTo(new Integer(other.getMatch().length()));
 			}
 			else
 			{
 				return new Double(prob).compareTo(new Double(other.prob));
 			}
 		}
-		
+
 		public void print()
 		{
 			System.out.format("Alignment@%x[%.2f]:\n%s\n%s\n=> matches '%s' [%d,%d]\n",
 					hashCode(), prob, searchTermString, searchTextString, getMatch(),
 					matchStart,matchEnd);
 		}
-		
+
 		@Override
 		public String toString()
 		{
 			return String.format("Ali@%x[%s,%.2f,%d,%d]", hashCode(), getMatch(), prob, matchStart, matchEnd);
 		}
-		
+
 		public Alignment(final String searchTermString, final String searchTextString, final double prob,
 				final int matchStart, final int matchEnd, final int r, final int c)
 		{
@@ -204,8 +200,8 @@ public class PseudoDamerauLevenshtein {
 			return PseudoDamerauLevenshtein.this;
 		}
 	}
-	
-	private boolean isMatch(int i, int j) 
+
+	private boolean isMatch(int i, int j)
 	{
 		char col = searchTerm.charAt(i-1);
 		char row = searchText.charAt(j-1);
@@ -214,15 +210,15 @@ public class PseudoDamerauLevenshtein {
 		else
 			return false;
 	}
-	
+
 	public int distance() {
-		
+
 		matrix = new int[searchTerm.length()+1][searchText.length()+1]; // [row][col]
-		
+
 		 // first column: start-gap penalties for searchTerm
 		for (int i = 0; i <= (int)searchTerm.length(); i++)
 			matrix[i][0] = i*costIndel;
-		
+
 		// first row: start-gap penalties for searchText
 		if (type == Type.Global)
 		{
@@ -233,17 +229,17 @@ public class PseudoDamerauLevenshtein {
 		{
 			Arrays.fill(matrix[0], 0);
 		}
-		
+
 		// compute the rest of the matrix
-		for (int i = 1; i <= searchTerm.length(); i++) 
+		for (int i = 1; i <= searchTerm.length(); i++)
 		{
-			for (int j = 1; j <= searchText.length(); j++) 
+			for (int j = 1; j <= searchText.length(); j++)
 			{
 				int cost_try_match = matrix[i-1][j-1] + (isMatch(i,j) ? 0 : costMismatch);
 				int cost_ins = matrix[i-1][j] + costIndel;
 				int cost_del = matrix[i][j-1] + costIndel;
 				matrix[i][j] = Math.min(cost_try_match, Math.min(cost_ins, cost_del));
-				
+
 				if (i >= 2 && j >= 2 &&
 					    searchTerm.charAt(i-2) == searchText.charAt(j-1) &&
 					    searchTerm.charAt(i-1) == searchText.charAt(j-2))
@@ -266,9 +262,9 @@ public class PseudoDamerauLevenshtein {
 			}
 			return min;
 		}
-	
+
 	}
-	
+
 	private void writeMatrix(int[][] H)
 	{
 		for (int i = 0; i < H.length; i++)
@@ -280,14 +276,14 @@ public class PseudoDamerauLevenshtein {
 			System.out.println();
 		}
 	}
-	
+
 	public List<Alignment> computeAlignments(final double minProb)
 	{
 		alignmentsInProgress = new Stack<Alignment>();
 		alignmentsDone = new ArrayList<Alignment>();
-		
+
 		int dist = distance(); // this computes the Dynamic Programming matrix according to Levenshtein
-		
+
 		if (type == Type.Global && getMatchProb(dist) > minProb)
 		{
 			alignmentsInProgress.push(new Alignment("", "", getMatchProb(dist), 0, searchText.length(),
@@ -305,7 +301,7 @@ public class PseudoDamerauLevenshtein {
 					searchTermSuffix.append('-');
 					searchTextSuffix.insert(0, searchText.charAt(c-1));
 				}
-				double prob = getMatchProb(matrix[searchTerm.length()][c-1]); 
+				double prob = getMatchProb(matrix[searchTerm.length()][c-1]);
 				if (prob > minProb)
 				{
 					alignmentsInProgress.push(new Alignment(searchTermSuffix.toString(), searchTextSuffix.toString(),
@@ -313,15 +309,15 @@ public class PseudoDamerauLevenshtein {
 				}
 			}
 		}
-		
+
 		while (!alignmentsInProgress.isEmpty())
 		{
 			developAlignment(alignmentsInProgress.pop());
 		}
-		
+
 		// filter (overlapping) alignments
 		alignmentsDone = filterAlignments(alignmentsDone);
-		
+
 		sortAlignments(alignmentsDone);
 
 		/*
@@ -331,17 +327,17 @@ public class PseudoDamerauLevenshtein {
 			ali.print();
 		}
 		*/
-		
+
 		matrix = null;
-		
+
 		//return alignmentsDone.toArray(new Alignment[alignmentsDone.size()]);
 		return alignmentsDone;
 	}
-	
+
 	/**
 	 * Keep only non-overlapping matches (alignments) while preferring alignments with high score (prob)
 	 * TODO: this is a heuristic, is the problem NP complete?
-	 * 
+	 *
 	 * @param alignments alignments list to filter
 	 * @return filtered alignment list
 	 */
@@ -349,15 +345,15 @@ public class PseudoDamerauLevenshtein {
 	{
 		if (alignments.isEmpty())
 			return new ArrayList<Alignment>();
-		
-		// sort by score and match length (see Alignment.compareTo()) 
+
+		// sort by score and match length (see Alignment.compareTo())
 		Collections.sort(alignments, Collections.reverseOrder());
-		
+
 		ArrayList<Alignment> clusters = new ArrayList<Alignment>(alignments.size());
 		// start with a single cluster
 		clusters.add(alignments.get(0));
 		alignments.remove(0);
-		
+
 		// assign alignments to clusters
 		for (Alignment ali: alignments)
 		{
@@ -380,8 +376,8 @@ public class PseudoDamerauLevenshtein {
 			}
 		}
 		return clusters;
-	}	
-	
+	}
+
 	/**
 	 * Sort alignments (matches) by start positions
 	 * @param alignments list of alignments to sort
@@ -394,17 +390,17 @@ public class PseudoDamerauLevenshtein {
 					public int compare(Alignment o1, Alignment o2) {
 						return new Integer(o1.matchStart).compareTo(o2.matchStart);
 					}
-			
+
 				});
 	}
-	
+
 //	private void printAlignmentsFrom(final String searchTermSuffix, final String searchTextSuffix, final int r, final int c,
 //			double prob, int matchStart, int matchEnd)
 	private void developAlignment(final Alignment ali)
 	{
 //		System.out.format("developAlignment(term=%s, text=%s, r=%d, c=%d)",
 //				ali.searchTermString, ali.searchTextString, ali.r, ali.c);
-		
+
 		if (ali.r == 0 && ali.c == 0)
 		{
 			alignmentsDone.add(ali);
@@ -414,12 +410,12 @@ public class PseudoDamerauLevenshtein {
 		else
 		{
 			// TODO: comments!!
-			
+
 			// match/mismatch
 			if (ali.r >= 1 && ali.c >= 1 && matrix[ali.r][ali.c] == matrix[ali.r-1][ali.c-1] + (isMatch(ali.r,ali.c) ? 0 : costMismatch))
 			{
 //				System.out.format("=> match/mismatch\n");
-				
+
 				alignmentsInProgress.push(new Alignment(
 						/*searchTerm.charAt(ali.r-1) + ali.searchTermString*/ null,
 						/*searchText.charAt(ali.c-1) + ali.searchTextString*/ null,
@@ -432,7 +428,7 @@ public class PseudoDamerauLevenshtein {
 			if (ali.c >= 1 && type == Type.SemiGlobal && ali.r == 0 && matrix[ali.r][ali.c-1] == 0)
 			{
 				System.out.format("=> insertion at beginning\n");
-				
+
 				alignmentsInProgress.push(new Alignment(
 						"-" + ali.searchTermString,
 						searchText.charAt(ali.c-1) + ali.searchTextString,
@@ -471,26 +467,26 @@ public class PseudoDamerauLevenshtein {
 						ali.prob, ali.matchStart, ali.matchEnd, ali.r, ali.c - 1)
 						);
 			}
-						
+
 			// deletion
 			if (ali.r >= 1 && matrix[ali.r][ali.c] == matrix[ali.r-1][ali.c] + costIndel)
 			{
 //				System.out.format("=> deletion\n");
-				
+
 				alignmentsInProgress.push(new Alignment(
 						/*searchTerm.charAt(ali.r-1) + ali.searchTermString*/ null,
 						/*"-" + ali.searchTextString*/ null,
 						ali.prob, ali.matchStart, ali.matchEnd, ali.r - 1, ali.c)
 						);
 			}
-			
+
 			// Damerau-Extension (transpositions)
 			if (ali.r >= 2 && ali.c >= 2 && matrix[ali.r][ali.c] == matrix[ali.r-2][ali.c-2] + costTranspos &&
 			    searchTerm.charAt(ali.r-2) == searchText.charAt(ali.c-1) &&
 			    searchTerm.charAt(ali.r-1) == searchText.charAt(ali.c-2))
 			{
 //				System.out.format("=> transposition\n");
-				
+
 				alignmentsInProgress.push(new Alignment(
 						/*searchTerm.substring(ali.r - 2, ali.r) + ali.searchTermString*/ null,
 						/*searchText.substring(ali.c - 2, ali.c) + ali.searchTextString*/ null,
@@ -511,7 +507,7 @@ public class PseudoDamerauLevenshtein {
 			return 1.0F - ((float)distance / Math.min(searchTerm.length(), searchText.length()));
 		}
 	}
-	
+
 	public float matchProb()
 	{
 		//LogUtils.severe("minMatchProb=" +StringMatchingStrategy.APPROXIMATE_MATCHING_MINPROB);
@@ -520,13 +516,13 @@ public class PseudoDamerauLevenshtein {
 		//LogUtils.severe(String.format("DLevDist(%s,%s) = %d\n", searchTerm, searchText, dist));
 		return getMatchProb(dist);
 	}
-	
+
 	public PseudoDamerauLevenshtein() {
 		//LogUtils.severe("minMatchProb=" +StringMatchingStrategy.APPROXIMATE_MATCHING_MINPROB);
 	}
 
 	public void init(String searchTerm, String searchText,
-			boolean subStringMatch, boolean caseSensitive) 
+			boolean subStringMatch, boolean caseSensitive)
 	{
 		if (searchTerm == null || searchText == null)
 		{
@@ -548,11 +544,11 @@ public class PseudoDamerauLevenshtein {
 
 	/*
 	public boolean matches(String searchTerm, String searchText,
-			boolean subStringMatch, boolean caseSensitive) 
+			boolean subStringMatch, boolean caseSensitive)
 	{
 		init(searchTerm, searchText, subStringMatch, caseSensitive);
-		
-		return matchProb() > StringMatchingStrategy.APPROXIMATE_MATCHING_MINPROB; 
+
+		return matchProb() > StringMatchingStrategy.APPROXIMATE_MATCHING_MINPROB;
 	}
 
 	public Match[] getMatches(String searchTerm,

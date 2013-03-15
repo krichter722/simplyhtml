@@ -71,11 +71,13 @@ import javax.swing.text.StyledEditorKit;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  *
  */
 class SyntaxPane extends JEditorPane implements CaretListener {
-    /**
+
+	private static final long serialVersionUID = 1L;
+	/**
      * Creates a new <code>SyntaxPane</code>.
      */
     public SyntaxPane() {

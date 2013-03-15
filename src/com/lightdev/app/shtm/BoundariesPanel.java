@@ -41,10 +41,11 @@ import javax.swing.text.html.CSS;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class BoundariesPanel extends JPanel implements AttributeComponent {
-    /** the components used for single attributes */
+	private static final long serialVersionUID = 1L;
+	/** the components used for single attributes */
     private final Vector components = new Vector();
     /** the attributes represented by this compoent */
     private CombinedAttribute ca;

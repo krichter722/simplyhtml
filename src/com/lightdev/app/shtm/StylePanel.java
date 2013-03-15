@@ -38,10 +38,12 @@ import javax.swing.text.html.HTML;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class StylePanel extends AttributePanel {
-    public static final int TYPE_PARAGRAPH = 1;
+
+	private static final long serialVersionUID = 1L;
+	public static final int TYPE_PARAGRAPH = 1;
     public static final int TYPE_TABLE_CELL = 2;
     private final AttributeComboBox ctAlgn;
     private final AttributeComboBox cAlgn;

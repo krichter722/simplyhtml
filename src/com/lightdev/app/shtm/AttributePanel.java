@@ -41,10 +41,12 @@ import javax.swing.text.SimpleAttributeSet;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 abstract class AttributePanel extends JPanel implements AttributeComponent, ContainerListener {
-    /** container for all AttributeComponents shown on this AttributePanel */
+
+	private static final long serialVersionUID = 1L;
+	/** container for all AttributeComponents shown on this AttributePanel */
     private final Vector components = new Vector();
 
     /**

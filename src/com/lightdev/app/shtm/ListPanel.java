@@ -43,10 +43,11 @@ import javax.swing.text.html.HTML;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class ListPanel extends JPanel implements AttributeComponent {
-    /** selector for list type */
+	private static final long serialVersionUID = 1L;
+	/** selector for list type */
     private final AttributeComboBox listType;
     /** selector for list position */
     private final AttributeComboBox listPosition;

@@ -31,16 +31,18 @@ import javax.swing.JPanel;
 import javax.swing.text.html.HTMLDocument;
 
 /**
- * Class for using SimplyHTML as as component  
- * 
+ * Class for using SimplyHTML as as component
+ *
  * @author Dimitri Polivaev
  * 14.01.2007
  */
 public abstract class SHTMLPanel extends JPanel implements SHTMLPrefsChangeListener {
-    SHTMLPanel(final LayoutManager layout) {
+	private static final long serialVersionUID = 1L;
+
+	SHTMLPanel(final LayoutManager layout) {
         super(layout);
     }
-    
+
     public void shtmlPrefChanged(String propertyName, String newValue, String oldValue)
     {
     	//System.out.format("SHTMLPanel.shtmlPrefChanged(%s, %s, %s)\n",
@@ -67,7 +69,7 @@ public abstract class SHTMLPanel extends JPanel implements SHTMLPrefsChangeListe
     public static void setResources(final TextResources resources) {
         SHTMLPanelImpl.setTextResources(resources);
     }
-    
+
     public static void setActionBuilder(final ActionBuilder ab){
     	SHTMLPanelImpl.setActionBuilder(ab);
     }

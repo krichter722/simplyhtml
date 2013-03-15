@@ -36,10 +36,11 @@ import javax.swing.text.AttributeSet;
  *      for details see file gpl.txt in the distribution
  *      package of this software
  *
- * 
+ *
  */
 class FontDialog extends DialogShell {
-    /** the font panel to use in this dialog */
+	private static final long serialVersionUID = 1L;
+	/** the font panel to use in this dialog */
     private final FontPanel fontPanel;
 
     /**
